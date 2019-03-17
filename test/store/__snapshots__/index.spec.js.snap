@@ -2,15 +2,17 @@
 
 exports[`store should have a persistor 1`] = `
 Object {
-  "bootstrapped": true,
-  "registry": Array [],
+  "bootstrapped": false,
+  "registry": Array [
+    "rrsb",
+  ],
 }
 `;
 
 exports[`store should have a store 1`] = `
 Object {
   "_persist": Object {
-    "rehydrated": true,
+    "rehydrated": false,
     "version": -1,
   },
   "app": Object {
