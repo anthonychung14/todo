@@ -29,6 +29,7 @@ module.exports = {
   appPolyfills: resolvePath('src/polyfills'),
   appSrc: resolvePath('src'),
   config: resolvePath('config'),
+  enhancers: resolvePath('src/enhancers'),
   dotenv: resolvePath('.env'),
   nodeModules: resolvePath('node_modules'),
   packageJson: resolvePath('package.json'),

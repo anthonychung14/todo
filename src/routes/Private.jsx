@@ -1,21 +1,28 @@
+// @flow
 import React from 'react';
-// import styled from 'styled-components';
-
+import { compose } from 'recompose';
 import { Container, Screen } from 'styled-minimal';
 
-const PlayByPlay = () => <h1>Play by play</h1>;
+import Toolbar from 'components/Toolbar';
+import Modal from 'components/Modal';
+import CategoryList from 'components/CategoryList';
+import { withEntryModal, withSubmitTodo } from '../enhancers';
 
-// const Header = styled.div`
-//   margin-bottom: ${utils.spacer(3)};
-//   text-align: center;
-// `;
-
-const Private = () => (
+const Private = ({ handleModalClick, visible, handleSubmitTodo }) => (
   <Screen key="Private" data-testid="PrivateWrapper">
     <Container verticalPadding>
-      <PlayByPlay />
+      <Modal
+        visible={visible}
+        handleModalClick={handleModalClick}
+        handleSubmitTodo={handleSubmitTodo}
+      />
+      <Toolbar handleModalClick={handleModalClick} />
+      <CategoryList />
     </Container>
   </Screen>
 );
 
-export default Private;
+export default compose(
+  withEntryModal,
+  withSubmitTodo,
+)(Private);

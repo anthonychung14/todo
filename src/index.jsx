@@ -4,8 +4,11 @@ import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
+import 'antd/dist/antd.css';
 
-import { store, persistor } from 'store/index';
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
+
+import { store, persistor, rrfProps } from 'store/index';
 import { showAlert } from 'actions/index';
 
 import App from 'containers/App';
@@ -44,9 +47,11 @@ export const app = {
     if (root) {
       ReactDOM.render(
         <Provider store={store}>
-          <PersistGate loading={<Loader size={100} block />} persistor={persistor}>
-            <Component />
-          </PersistGate>
+          <ReactReduxFirebaseProvider {...rrfProps}>
+            <PersistGate loading={<Loader size={100} block />} persistor={persistor}>
+              <Component />
+            </PersistGate>
+          </ReactReduxFirebaseProvider>
         </Provider>,
         root,
       );

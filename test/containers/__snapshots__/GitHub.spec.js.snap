@@ -48,7 +48,7 @@ exports[`GitHub should render properly 1`] = `
   </Flex>
   <Loader
     block={true}
-    color="#00b4d5"
+    color="#000000"
     size={32}
     type="grow"
   />

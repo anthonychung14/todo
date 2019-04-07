@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 import { appColor } from 'modules/theme';
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+  @import url('https://fonts.googleapis.com/css?family=Saira+Semi+Condensed');
 
   *,
   *:before,
@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: Lato, sans-serif;
+    font-family: Saira Semi Condensed, sans-serif;
     font-size: 16px; /* stylelint-disable unit-blacklist */
     margin: 0;
     min-height: 100vh;

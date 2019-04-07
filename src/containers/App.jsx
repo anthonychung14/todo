@@ -21,7 +21,6 @@ import NotFound from 'routes/NotFound';
 import Header from 'components/Header';
 import SystemAlerts from 'containers/SystemAlerts';
 
-import Footer from 'components/Footer';
 import GlobalStyles from 'components/GlobalStyles';
 import RoutePublic from 'components/RoutePublic';
 import RoutePrivate from 'components/RoutePrivate';
@@ -47,6 +46,15 @@ const Main = styled.main`
   ${MainPrivate};
 `;
 
+const HAHA_SAYINGS = [
+  'The booty is strong with this one',
+  'Eat my ass',
+  'Sit on my face',
+  'Toss my salad now',
+];
+
+const getRandomHAHA = hahaList => hahaList[Math.floor(Math.random() * hahaList.length)];
+
 export class App extends React.Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
@@ -59,7 +67,7 @@ export class App extends React.Component {
 
     /* istanbul ignore else */
     if (changedTo('user.isAuthenticated', true)) {
-      dispatch(showAlert('Hello! And welcome!', { variant: 'success', icon: 'bell' }));
+      dispatch(showAlert(getRandomHAHA(HAHA_SAYINGS), { variant: 'success', icon: 'bell' }));
     }
   }
 
@@ -72,11 +80,11 @@ export class App extends React.Component {
           <AppWrapper logged={user.isAuthenticated}>
             <Helmet
               defer={false}
-              htmlAttributes={{ lang: 'pt-br' }}
+              htmlAttributes={{ lang: 'en' }}
               encodeSpecialCharacters={true}
               defaultTitle={config.title}
               titleTemplate={`%s | ${config.name}`}
-              titleAttributes={{ itemprop: 'name', lang: 'pt-br' }}
+              titleAttributes={{ itemprop: 'name', lang: 'en' }}
             />
             {user.isAuthenticated && <Header dispatch={dispatch} user={user} />}
             <Main isAuthenticated={user.isAuthenticated}>
@@ -95,7 +103,6 @@ export class App extends React.Component {
                 <Route component={NotFound} />
               </Switch>
             </Main>
-            <Footer />
             <SystemAlerts />
             <GlobalStyles />
           </AppWrapper>

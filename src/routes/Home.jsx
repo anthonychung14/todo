@@ -2,14 +2,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-
-import config from 'config';
 import { login } from 'actions/index';
-
 import { Button, Container, Text, utils } from 'styled-minimal';
+
+import MeowKaiLogo from 'assets/media/brand/MK-Logo-White.png';
 import Background from 'components/Background';
-import Icon from 'components/Icon';
-import Logo from 'components/Logo';
+
+import Splash from 'components/Splash';
 
 const { spacer } = utils;
 
@@ -23,29 +22,13 @@ const HomeContainer = styled(Container)`
 
 const Header = styled.div`
   margin-bottom: ${spacer(3)};
-  text-align: center;
 
   svg {
-    width: 20rem;
+    width: 40rem;
   }
 `;
 
-const Heading = styled.h1`
-  color: #fff;
-  font-size: 3.5rem;
-  line-height: 1.4;
-  margin-bottom: ${spacer(3)};
-  margin-top: 0;
-  text-align: center;
-
-  /* stylelint-disable */
-  ${utils.responsive({
-    lg: `
-      font-size: 4rem;
-    `,
-  })};
-  /* stylelint-enable */
-`;
+const Image = ({ src, alt }) => <img src={src} alt={alt} />;
 
 export class Home extends React.PureComponent {
   static propTypes = {
@@ -64,20 +47,25 @@ export class Home extends React.PureComponent {
 
     return (
       <Background key="Home" data-testid="HomeWrapper">
-        <HomeContainer verticalPadding>
+        <HomeContainer>
+          <Image src={MeowKaiLogo} alt="meowkai-logo" />
           <Header>
-            <Logo />
+            <Splash />
           </Header>
-          <Heading>{config.description}</Heading>
           <Button
             animate={user.status === 'running'}
             onClick={this.handleClickLogin}
             size="xl"
-            textTransform="uppercase"
-            data-testid="Login"
+            textTransform="lowercase"
+            style={{
+              backgroundColor: 'white',
+              color: 'black',
+              textAlign: 'center',
+              width: '290px',
+              height: '48px',
+            }}
           >
-            <Icon name="sign-in" />
-            <Text ml={2}>Start</Text>
+            <Text ml={2}>do it</Text>
           </Button>
         </HomeContainer>
       </Background>

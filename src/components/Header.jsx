@@ -13,7 +13,7 @@ import Logo from 'components/Logo';
 const { responsive, spacer } = utils;
 
 const HeaderWrapper = styled.header`
-  background-color: ${rgba(appColor, 0.9)};
+  background-color: ${rgba(appColor, 1)};
   height: ${headerHeight}px;
   left: 0;
   position: fixed;
